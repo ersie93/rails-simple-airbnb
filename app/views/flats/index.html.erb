@@ -1,0 +1,32 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Navbar</a>
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class='container'>
+	<div class="d-block ml-2 mt-3">
+		<h1>All our flats</h1>
+		<p>All <%= @flats.count %> flats.</p>
+	</div>
+	<div class="d-flex justify-content-between">
+		<% @flats.each do |flat|%>
+			<div class="card m-2 text-center">
+				<img class="background-size-contain" src="https://picsum.photos/640/360">
+				<h4><%=flat.name%></h4>
+				<p><%=flat.address%></p>
+				<p><%=flat.description%></p>
+				<h5>£<%=flat.price_per_night%>  👥<%=flat.number_of_guests%></h5>
+				<div class="text-center">
+					<%= link_to "More info"%>
+					<%= link_to "Edit" %>
+					<%= link_to "Remove"%>	
+				</div>
+			</div>
+		<% end -%>
+	</div>
+</div>
